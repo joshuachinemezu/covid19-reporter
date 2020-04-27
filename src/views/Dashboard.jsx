@@ -1,5 +1,10 @@
 import React from 'react'
-import { GlobalCount, AffectedCard, Loader } from '../components'
+import {
+	GlobalCount,
+	AffectedCard,
+	Loader,
+	CountryTimeSeries,
+} from '../components'
 // reactstrap components
 import { Container, Row, Col } from 'reactstrap'
 import { useDispatch, useSelector } from 'react-redux'
@@ -18,7 +23,9 @@ function Dashboard(props) {
 					<Col md='5'>
 						<AffectedCard />
 					</Col>
-					<Col md='7' className='bg-white'></Col>
+					<Col md='7' className='bg-white'>
+						<CountryTimeSeries />
+					</Col>
 				</Row>
 				<Row>
 					<Col md='12' className='bg-white mt-4'>
@@ -32,7 +39,7 @@ function Dashboard(props) {
 						<iframe
 							title='Map'
 							onLoad={() => dispatch(setMapLoader(false))}
-							src='http://localhost/highchart-basic/index.html'
+							src={`${process.env.REACT_APP_MAP_VISUAL}`}
 							style={{ border: '0', width: '100%', height: '512px' }}
 						></iframe>
 					</Col>

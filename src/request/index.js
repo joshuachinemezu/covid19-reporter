@@ -1,5 +1,9 @@
 import http from './http'
 
+export async function getRawData() {
+	return http.get(`/global/stats`)
+}
+
 export async function fetchGlobalCount() {
 	return http.get(`/global/count`)
 }

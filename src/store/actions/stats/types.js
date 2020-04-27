@@ -1,2 +1,4 @@
 export const GLOBAL_DATA = 'GLOBAL_DATA'
 export const MAP_DATA = 'MAP_DATA'
+export const COUNTRY_TIME_SERIES = 'COUNTRY_TIME_SERIES'
+export const COUNTRY_DAILY = 'COUNTRY_DAILY'
