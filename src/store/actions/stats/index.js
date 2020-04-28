@@ -9,6 +9,7 @@ import {
 	COUNTRY_TIME_SERIES,
 	COUNTRY_DAILY,
 	NIGHT_MODE,
+	LAST_UPDATED,
 } from './types'
 
 /**
@@ -99,7 +100,9 @@ export const getCountryTimeSeries = () => async (dispatch) => {
 						point.active = active
 					}
 				}
+
 				dispatch(getCountryDaily(countryTimeSeries))
+				dispatch(setLastUpdated(countryTimeSeries))
 
 				dispatch({
 					type: COUNTRY_TIME_SERIES,
@@ -137,6 +140,23 @@ export const getCountryDaily = (countryTimeSeries) => (dispatch) => {
 		type: COUNTRY_DAILY,
 		countryDailyLoader: false,
 		countryDaily: countryDaily,
+	})
+}
+
+/**
+ * @description Action responsible for setting night mode
+ * @param countryTimeSeries
+ * @returns {Function}
+ *
+ */
+export const setLastUpdated = (countryTimeSeries) => async (dispatch) => {
+	let lastData = countryTimeSeries[countryTimeSeries.length - 1].data
+	const lastUpdated = lastData[lastData.length - 1].date
+
+	dispatch({
+		type: LAST_UPDATED,
+		lastUpdated: lastUpdated,
+		lastUpdatedLoader: false,
 	})
 }
 

@@ -4,6 +4,7 @@ import {
 	COUNTRY_TIME_SERIES,
 	COUNTRY_DAILY,
 	NIGHT_MODE,
+	LAST_UPDATED,
 } from '../actions/stats/types'
 import { resolve_redux_state } from '../../utils'
 
@@ -16,6 +17,8 @@ const initialState = {
 	countryDaily: [],
 	countryDailyLoader: true,
 	darkMode: false,
+	lastUpdatedLoader: true,
+	lastUpdated: '',
 }
 
 export default (state = initialState, action) => {
@@ -29,6 +32,8 @@ export default (state = initialState, action) => {
 		case COUNTRY_DAILY:
 			return resolve_redux_state(state, action)
 		case NIGHT_MODE:
+			return resolve_redux_state(state, action)
+		case LAST_UPDATED:
 			return resolve_redux_state(state, action)
 		default:
 			return resolve_redux_state(state)

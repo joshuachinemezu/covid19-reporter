@@ -7,7 +7,7 @@ import {
 	DarkModeToggle,
 } from '../components'
 // reactstrap components
-import { Container, Row, Col } from 'reactstrap'
+import { Container, Row, Col, Badge } from 'reactstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import { setMapLoader } from '../store/actions'
 import useDarkMode from 'use-dark-mode'
@@ -15,7 +15,9 @@ import useDarkMode from 'use-dark-mode'
 function Dashboard(props) {
 	const dispatch = useDispatch()
 
-	const { mapLoader, darkMode } = useSelector((state) => state.stats)
+	const { mapLoader, darkMode, lastUpdatedLoader, lastUpdated } = useSelector(
+		(state) => state.stats
+	)
 
 	let mapURL
 
@@ -26,8 +28,17 @@ function Dashboard(props) {
 
 	return (
 		<Container className='mt-5'>
+			<h1 className='text-center'>COVID-19 REPORTER</h1>
+			<h3 className='text-right mt-3'>
+				<Badge className='badge-default text-white'>
+					<span className='text-bold pr-2'>Last Updated:</span>
+					{lastUpdatedLoader ? <Loader /> : lastUpdated}
+				</Badge>
+			</h3>
+
 			<DarkModeToggle />
-			<div className='flex-center position-ref full-height'>
+
+			<div>
 				<GlobalCount />
 				<Row>
 					<Col md='5'>
