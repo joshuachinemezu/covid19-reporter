@@ -8,6 +8,7 @@ import {
 	MAP_DATA,
 	COUNTRY_TIME_SERIES,
 	COUNTRY_DAILY,
+	NIGHT_MODE,
 } from './types'
 
 /**
@@ -35,7 +36,7 @@ export const getGlobalCount = () => async (dispatch) => {
 }
 
 /**
- * @description Action responsible for fetching global stats
+ * @description Action responsible for fetching affected countries
  * @returns {Function}
  *
  */
@@ -62,7 +63,7 @@ export const getAffectedCountriesDetailed = () => async (
 }
 
 /**
- * @description Action responsible for filtering date change
+ * @description Action responsible for changing state of map loader
  * @param payload
  * @returns {Function}
  *
@@ -75,7 +76,7 @@ export const setMapLoader = (payload) => async (dispatch) => {
 }
 
 /**
- * @description Action responsible for filtering date change
+ * @description Action responsible for fetching country time series
  * @returns {Function}
  *
  */
@@ -136,5 +137,19 @@ export const getCountryDaily = (countryTimeSeries) => (dispatch) => {
 		type: COUNTRY_DAILY,
 		countryDailyLoader: false,
 		countryDaily: countryDaily,
+	})
+}
+
+/**
+ * @description Action responsible for setting night mode
+ * @param payload
+ * @returns {Function}
+ *
+ */
+export const setDarkMode = (payload) => async (dispatch) => {
+	dispatch(setMapLoader(true))
+	dispatch({
+		type: NIGHT_MODE,
+		darkMode: payload,
 	})
 }

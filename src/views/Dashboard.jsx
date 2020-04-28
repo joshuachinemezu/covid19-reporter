@@ -4,31 +4,41 @@ import {
 	AffectedCard,
 	Loader,
 	CountryTimeSeries,
+	DarkModeToggle,
 } from '../components'
 // reactstrap components
 import { Container, Row, Col } from 'reactstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import { setMapLoader } from '../store/actions'
+import useDarkMode from 'use-dark-mode'
 
 function Dashboard(props) {
 	const dispatch = useDispatch()
 
-	const { mapLoader } = useSelector((state) => state.stats)
+	const { mapLoader, darkMode } = useSelector((state) => state.stats)
+
+	let mapURL
+
+	const nightMode = useDarkMode(darkMode)
+
+	if (nightMode.value) mapURL = process.env.REACT_APP_MAP_VISUAL_DARK
+	else mapURL = process.env.REACT_APP_MAP_VISUAL_LIGHT
 
 	return (
-		<div>
-			<Container className='mt-5'>
+		<Container className='mt-5'>
+			<DarkModeToggle />
+			<div className='flex-center position-ref full-height'>
 				<GlobalCount />
 				<Row>
 					<Col md='5'>
 						<AffectedCard />
 					</Col>
-					<Col md='7' className='bg-white'>
+					<Col md='7' className='country-chart'>
 						<CountryTimeSeries />
 					</Col>
 				</Row>
-				<Row>
-					<Col md='12' className='bg-white mt-4'>
+				<Row className='map-row'>
+					<Col md='12' className='mt-4'>
 						{mapLoader && (
 							<Row className='text-center mt-5 pt-5'>
 								<Col>
@@ -38,14 +48,24 @@ function Dashboard(props) {
 						)}
 						<iframe
 							title='Map'
-							onLoad={() => dispatch(setMapLoader(false))}
-							src={`${process.env.REACT_APP_MAP_VISUAL}`}
-							style={{ border: '0', width: '100%', height: '512px' }}
+							onLoad={(e) => {
+								dispatch(setMapLoader(false))
+							}}
+							hidden={mapLoader}
+							id='mapFrame'
+							name='mapFrame'
+							className='card'
+							src={`${mapURL}`}
+							style={{
+								border: '0',
+								width: '100%',
+								height: '512px',
+							}}
 						></iframe>
 					</Col>
 				</Row>
-			</Container>
-		</div>
+			</div>
+		</Container>
 	)
 }
 

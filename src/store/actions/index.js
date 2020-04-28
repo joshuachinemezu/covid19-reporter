@@ -3,6 +3,7 @@ import {
 	getAffectedCountriesDetailed,
 	setMapLoader,
 	getCountryTimeSeries,
+	setDarkMode,
 } from './stats'
 
 export {
@@ -10,4 +11,5 @@ export {
 	getAffectedCountriesDetailed,
 	setMapLoader,
 	getCountryTimeSeries,
+	setDarkMode,
 }
