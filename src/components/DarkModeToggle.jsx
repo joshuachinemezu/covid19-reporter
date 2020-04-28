@@ -14,33 +14,45 @@ const DarkModeToggle = () => {
 	const dispatch = useDispatch()
 
 	return (
-		<div className='dark-mode-toggle mb-5'>
-			<button
-				type='button'
+		<>
+			<h5
+				className='mt-1'
 				onClick={() => {
-					dispatch(setDarkMode(false))
-					nightMode.disable()
-				}}
-			>
-				☀
-			</button>
-			<Toggle
-				checked={nightMode.value}
-				onChange={() => {
 					dispatch(setDarkMode(!darkMode))
 					nightMode.toggle()
 				}}
-			/>
-			<button
-				type='button'
-				onClick={() => {
-					nightMode.enable()
-					dispatch(setDarkMode(true))
-				}}
 			>
-				☾
-			</button>
-		</div>
+				Switch to {nightMode.value ? 'Light' : 'Dark'} mode
+			</h5>
+
+			<div className='dark-mode-toggle mb-5'>
+				<button
+					type='button'
+					onClick={() => {
+						dispatch(setDarkMode(false))
+						nightMode.disable()
+					}}
+				>
+					☀
+				</button>
+				<Toggle
+					checked={nightMode.value}
+					onChange={() => {
+						dispatch(setDarkMode(!darkMode))
+						nightMode.toggle()
+					}}
+				/>
+				<button
+					type='button'
+					onClick={() => {
+						nightMode.enable()
+						dispatch(setDarkMode(true))
+					}}
+				>
+					☾
+				</button>
+			</div>
+		</>
 	)
 }
 
