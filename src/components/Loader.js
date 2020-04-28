@@ -10,5 +10,5 @@ export const Loader = ({ size, color }) => {
 }
 Loader.defaultProps = {
 	size: 12,
-	color: 'black',
+	color: '',
 }

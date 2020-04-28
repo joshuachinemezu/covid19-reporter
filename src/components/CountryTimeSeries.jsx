@@ -76,7 +76,7 @@ export const CountryTimeSeries = (props) => {
 	const renderCountryOptions = () => {
 		return countryTimeSeries.map((value, index) => {
 			return (
-				<option value={index} selected={index === country}>
+				<option key={index} value={index} selected={index === country}>
 					{value.country}
 				</option>
 			)
@@ -85,9 +85,13 @@ export const CountryTimeSeries = (props) => {
 
 	// Render options of the different statuses
 	const renderTypesOptions = () => {
-		return types.map((value) => {
+		return types.map((value, index) => {
 			return (
-				<option value={value.tabKey} selected={value.tabKey === type}>
+				<option
+					key={index}
+					value={value.tabKey}
+					selected={value.tabKey === type}
+				>
 					{value.text}
 				</option>
 			)

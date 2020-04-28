@@ -29,7 +29,6 @@ export const GlobalCount = () => {
 								<Loader />
 							)
 						}
-						percentage={3.48}
 						infoTest={'Since last month'}
 						icon={'fas fa-chart-bar'}
 						iconColor={'bg-warning'}
@@ -45,7 +44,6 @@ export const GlobalCount = () => {
 								<Loader />
 							)
 						}
-						percentage={3.48}
 						infoTest={'Since last month'}
 						icon={'fas fa-chart-bar'}
 						iconColor={'bg-danger'}
@@ -61,7 +59,6 @@ export const GlobalCount = () => {
 								<Loader />
 							)
 						}
-						percentage={3.48}
 						infoTest={'Since last month'}
 						icon={'fas fa-chart-bar'}
 						iconColor={'bg-success'}
@@ -77,7 +74,6 @@ export const GlobalCount = () => {
 								<Loader />
 							)
 						}
-						percentage={3.48}
 						infoTest={'Since last month'}
 						icon={'fas fa-chart-bar'}
 						iconColor={'bg-info'}

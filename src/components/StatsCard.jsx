@@ -23,11 +23,11 @@ export const StatsCard = (props) => {
 						</Col>
 					</Row>
 					<p className='mt-3 mb-0 text-muted text-sm'>
-						<span className='text-success mr-2'>
+						{/* <span className='text-success mr-2'>
 							<i className='fa fa-arrow-up' />
 							{props.percentage}%
 						</span>
-						<span className='text-nowrap'>{props.infoTest}</span>
+						<span className='text-nowrap'>{props.infoTest}</span> */}
 					</p>
 				</CardBody>
 			</Card>
