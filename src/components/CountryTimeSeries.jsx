@@ -96,7 +96,7 @@ export const CountryTimeSeries = (props) => {
 
 	return (
 		<div className='timeline p-2' style={{ height: '100%' }}>
-			<Row className='m-2 mt-4 mb-5'>
+			<Row className='m-2 mt-4 mb-4'>
 				<Col>
 					<select
 						value={country}
@@ -127,7 +127,7 @@ export const CountryTimeSeries = (props) => {
 					</Col>
 				</Row>
 			) : (
-				<Row className='mt-3'>
+				<Row className='m-2 mt-3 mb-3'>
 					<ResponsiveContainer width='100%' height={200}>
 						<LineChart
 							data={countryTimeSeries[country].data}
@@ -158,7 +158,7 @@ export const CountryTimeSeries = (props) => {
 					</Col>
 				</Row>
 			) : (
-				<Row className='mt-4'>
+				<Row className='m-2 mt-4'>
 					<ResponsiveContainer width='100%' height={200}>
 						<BarChart
 							data={countryDaily[country].data}
