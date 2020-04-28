@@ -7,7 +7,12 @@
   ✨ React + Redux + Argon + Netlify + <a href="https://github.com/joshuachinemezu/covid19-reporter-api">Covid-19 Reporter API</a> ✨
   </br>
  </br>
-  </br> 
+  <img src="public/reporter.gif" alt="Covid-19 Reporter" />
+  </br>
+
+<a target="_blank" href="https://covid19-reporter.netlify.app/">View Demo</a>
+</br>
+
 </p>
 
 <p align="center">
