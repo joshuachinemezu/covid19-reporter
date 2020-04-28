@@ -95,7 +95,7 @@ export const CountryTimeSeries = (props) => {
 	}
 
 	return (
-		<>
+		<div className='timeline p-2' style={{ height: '100%' }}>
 			<Row className='m-2 mt-4 mb-5'>
 				<Col>
 					<select
@@ -173,6 +173,6 @@ export const CountryTimeSeries = (props) => {
 					</ResponsiveContainer>
 				</Row>
 			)}
-		</>
+		</div>
 	)
 }
