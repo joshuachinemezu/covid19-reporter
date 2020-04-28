@@ -76,7 +76,7 @@ export const CountryTimeSeries = (props) => {
 	const renderCountryOptions = () => {
 		return countryTimeSeries.map((value, index) => {
 			return (
-				<option key={index} value={index} selected={index === country}>
+				<option key={index} value={index}>
 					{value.country}
 				</option>
 			)
@@ -85,13 +85,9 @@ export const CountryTimeSeries = (props) => {
 
 	// Render options of the different statuses
 	const renderTypesOptions = () => {
-		return types.map((value, index) => {
+		return types.map((value) => {
 			return (
-				<option
-					key={index}
-					value={value.tabKey}
-					selected={value.tabKey === type}
-				>
+				<option key={value.tabKey} value={value.tabKey}>
 					{value.text}
 				</option>
 			)
@@ -102,7 +98,11 @@ export const CountryTimeSeries = (props) => {
 		<>
 			<Row className='m-2 mt-4 mb-5'>
 				<Col>
-					<select className='form-control' onChange={handleCountryChange}>
+					<select
+						value={country}
+						className='form-control'
+						onChange={handleCountryChange}
+					>
 						{countryTimeSeriesLoader ? (
 							<option>Loading...</option>
 						) : (
@@ -113,6 +113,7 @@ export const CountryTimeSeries = (props) => {
 				<Col>
 					<select
 						className='form-control'
+						defaultValue={type}
 						onChange={(e) => setType(e.target.value)}
 					>
 						{renderTypesOptions()}
